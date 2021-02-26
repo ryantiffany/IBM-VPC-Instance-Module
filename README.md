@@ -42,7 +42,7 @@ module instance {
 | image\_name | Name of the image to use for the virtual server instance | `string` | `"ibm-ubuntu-20-04-minimal-amd64-2"` | no |
 | user\_data\_script | Script to run during the virtual server instance initialization. Defaults to an [Ubuntu specific script](https://github.com/ryantiffany/IBM-VPC-Instance-Module/blob/main/init.yml) when set to empty | `string` | `""` | no |
 | profile\_name | Instance profile to use for the virtual server instance | `string` | `"cx2-2x4"` | no |
-| ssh\_key_ids\ | List of SSH key IDs to inject into the virtual server instance | `list(string)` | n/a | yes |
+| ssh\_key_ids | List of SSH key IDs to inject into the virtual server instance | `list(string)` | n/a | yes |
 | tags | List of tags to add on all created resources | `list(string)` | `[]` | no |
 
 ## Outputs
