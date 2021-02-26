@@ -1,0 +1,22 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+write_files:
+- content: |
+    network:
+    version: 2
+    ethernets:
+      ens3:
+        nameservers:
+          addresses: [ "161.26.0.7", "161.26.0.8" ]
+        dhcp4-overrides:
+          use-dns: false
+  path: /etc/netplan/99-custom-dns.yaml
+  owner: root:root
+- content: | 
+    supersede domain-name-servers 161.26.0.7, 161.26.0.8;
+  path: /etc/dhcp/dhclient.conf
+  owner: root:root
+final_message: "The system is finally up, after $UPTIME seconds"
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
+
